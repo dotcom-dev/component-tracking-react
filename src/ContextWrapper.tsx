@@ -1,56 +1,36 @@
-// ContextWrapper.tsx
-
-import React, {
-  createContext,
-  useContext,
-  ReactNode,
-  createElement
-} from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
 
 interface ContextWrapperProps {
   keyValue: string;
   children: ReactNode;
 }
 
-// Create a context with a specific key
-const Context = createContext<string | undefined>(undefined);
-
-// Custom hook to access the parent context key
-function useParentContextKey(): string | undefined {
-  return useContext(Context);
+interface ContextType {
+  keyValue: string;
+  buildPath: (childKey?: string) => string;
 }
 
-// Function to build the path using parent context keys
-function buildPath(
-  parentContextKey: string | undefined,
-  keyValue: string
-): string {
-  const path = parentContextKey ? `${parentContextKey}.${keyValue}` : keyValue;
-  return path;
-}
+export const ContextTracking = createContext<ContextType | undefined>(
+  undefined
+);
 
-// ContextWrapper component
 export function ContextWrapper({ keyValue, children }: ContextWrapperProps) {
-  const parentContextKey = useParentContextKey();
+  const parentContext = useContext(ContextTracking);
 
-  if (!children) {
-    return null;
-  }
+  const context: ContextType = {
+    keyValue,
+    // TODO: check on updating this
+    buildPath: childKey => {
+      if (parentContext) {
+        return `${parentContext.buildPath(parentContext.keyValue)}/${keyValue}`;
+      }
+      return keyValue;
+    }
+  };
 
   return (
-    <Context.Provider value={keyValue}>
-      {React.Children.map(children, child => {
-        if (React.isValidElement(child)) {
-          return createElement(child.type, {
-            ...child.props,
-            buildPath: (childKey: string) =>
-              buildPath(parentContextKey, childKey)
-          });
-        }
-        return child;
-      })}
-    </Context.Provider>
+    <ContextTracking.Provider value={context}>
+      {children}
+    </ContextTracking.Provider>
   );
 }
-
-export { buildPath };
