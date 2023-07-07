@@ -1,20 +1,23 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 
-interface ContextWrapperProps {
+type ContextWrapperPropsType = {
   keyValue: string;
   children: ReactNode;
-}
+};
 
-interface ContextType {
+type ContextType = {
   keyValue: string;
   buildPath: (childKey?: string) => string;
-}
+};
 
 export const ContextTracking = createContext<ContextType | undefined>(
   undefined
 );
 
-export function ContextWrapper({ keyValue, children }: ContextWrapperProps) {
+export const ContextWrapper = ({
+  keyValue,
+  children
+}: ContextWrapperPropsType) => {
   const parentContext = useContext(ContextTracking);
 
   const context: ContextType = {
@@ -33,4 +36,4 @@ export function ContextWrapper({ keyValue, children }: ContextWrapperProps) {
       {children}
     </ContextTracking.Provider>
   );
-}
+};
