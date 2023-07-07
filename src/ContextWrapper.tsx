@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 interface ContextWrapperProps {
-  key: string;
+  keyValue: string;
   children: ReactNode;
 }
 
@@ -21,13 +21,16 @@ function useParentContextKey(): string | undefined {
 }
 
 // Function to build the path using parent context keys
-function buildPath(parentContextKey: string | undefined, key: string): string {
-  const path = parentContextKey ? `${parentContextKey}.${key}` : key;
+function buildPath(
+  parentContextKey: string | undefined,
+  keyValue: string
+): string {
+  const path = parentContextKey ? `${parentContextKey}.${keyValue}` : keyValue;
   return path;
 }
 
 // ContextWrapper component
-export function ContextWrapper({ key, children }: ContextWrapperProps) {
+export function ContextWrapper({ keyValue, children }: ContextWrapperProps) {
   const parentContextKey = useParentContextKey();
 
   if (!children) {
@@ -35,7 +38,7 @@ export function ContextWrapper({ key, children }: ContextWrapperProps) {
   }
 
   return (
-    <Context.Provider value={key}>
+    <Context.Provider value={keyValue}>
       {React.Children.map(children, child => {
         if (React.isValidElement(child)) {
           return createElement(child.type, {
