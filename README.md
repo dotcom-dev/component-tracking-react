@@ -9,7 +9,7 @@ yarn add github:alin-c-wiredelta/shared-context-library-react-and-react-native#m
 ## How to use
 
 ```js
-import { ContextWrapper, useContextPath } from 'context-tracking';
+import { ContextWrapper } from 'context-tracking';
 
 const ParentComponent = () => {
   return (
@@ -21,6 +21,8 @@ const ParentComponent = () => {
 ```
 
 ```js
+import { ContextWrapper, useContextPath } from 'context-tracking';
+
 const ChildComponent1 = () => {
   const path = useContextPath();
 
@@ -36,6 +38,8 @@ const ChildComponent1 = () => {
 ```
 
 ```js
+import { ContextWrapper, useContextPath } from 'context-tracking';
+
 const ChildComponent2 = () => {
   const path = useContextPath();
 
@@ -51,6 +55,8 @@ const ChildComponent2 = () => {
 ```
 
 ```js
+import { useContextPath } from 'context-tracking';
+
 const ChildComponent3 = () => {
   const path = useContextPath();
 
