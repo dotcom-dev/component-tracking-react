@@ -1,9 +1,7 @@
 {
   "name": "component-tracking-react",
   "version": "1.0.0",
-  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.js",
   "private": true,
   "peerDependencies": {
     "react": "^18.0.0",
