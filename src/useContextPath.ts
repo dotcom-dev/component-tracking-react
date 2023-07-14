@@ -5,7 +5,9 @@ export const useContextPath = () => {
   const context = useContext(ContextTracking);
 
   if (!context) {
-    return null;
+    throw new Error(
+      `This hook should be used inside of the context ${useContextPath.name}`
+    );
   }
 
   const path = context.buildPath();
