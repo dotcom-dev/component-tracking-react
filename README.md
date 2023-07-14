@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-yarn add github:alin-c-wiredelta/shared-context-library-react-and-react-native#main
+yarn add https://github.com/dotcom-dev/component-tracking-react.git
 ```
 
 ## How to use
