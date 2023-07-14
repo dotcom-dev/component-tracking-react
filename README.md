@@ -9,7 +9,7 @@ yarn add https://github.com/dotcom-dev/component-tracking-react.git
 ## How to use
 
 ```js
-import { ContextWrapper } from 'context-tracking';
+import { ContextWrapper } from 'component-tracking-react';
 
 const ParentComponent = () => {
   return (
@@ -21,7 +21,7 @@ const ParentComponent = () => {
 ```
 
 ```js
-import { ContextWrapper, useContextPath } from 'context-tracking';
+import { ContextWrapper, useContextPath } from 'component-tracking-react';
 
 const ChildComponent1 = () => {
   const path = useContextPath();
@@ -38,7 +38,7 @@ const ChildComponent1 = () => {
 ```
 
 ```js
-import { ContextWrapper, useContextPath } from 'context-tracking';
+import { ContextWrapper, useContextPath } from 'component-tracking-react';
 
 const ChildComponent2 = () => {
   const path = useContextPath();
@@ -55,7 +55,7 @@ const ChildComponent2 = () => {
 ```
 
 ```js
-import { useContextPath } from 'context-tracking';
+import { useContextPath } from 'component-tracking-react';
 
 const ChildComponent3 = () => {
   const path = useContextPath();
