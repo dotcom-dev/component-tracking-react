@@ -5,7 +5,7 @@ type ContextWrapperPropsType = {
 };
 type ContextType = {
     keyValue: string;
-    buildPath: () => string;
+    buildPath: () => string[];
 };
 export declare const ContextTracking: React.Context<ContextType | undefined>;
 export declare const ContextWrapper: ({ keyValue, children }: ContextWrapperPropsType) => React.JSX.Element;

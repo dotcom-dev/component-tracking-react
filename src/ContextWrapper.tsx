@@ -7,7 +7,7 @@ type ContextWrapperPropsType = {
 
 type ContextType = {
   keyValue: string;
-  buildPath: () => string;
+  buildPath: () => string[];
 };
 
 export const ContextTracking = createContext<ContextType | undefined>(
@@ -24,9 +24,9 @@ export const ContextWrapper = ({
     keyValue,
     buildPath: () => {
       if (parentContext) {
-        return `${parentContext.buildPath()}/${keyValue}`;
+        return [...parentContext.buildPath(), keyValue];
       }
-      return keyValue;
+      return [keyValue];
     }
   };
 
