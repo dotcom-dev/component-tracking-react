@@ -1,1 +1,1 @@
-export declare const useContextPath: () => string[];
+export declare const useContextPath: () => string;

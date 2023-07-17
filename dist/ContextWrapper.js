@@ -22,15 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ContextWrapper = exports.ContextTracking = void 0;
 var react_1 = __importStar(require("react"));
@@ -42,9 +33,9 @@ var ContextWrapper = function (_a) {
         keyValue: keyValue,
         buildPath: function () {
             if (parentContext) {
-                return __spreadArray(__spreadArray([], parentContext.buildPath(), true), [keyValue], false);
+                return "".concat(parentContext.buildPath(), "/").concat(keyValue);
             }
-            return [keyValue];
+            return keyValue;
         }
     };
     return (react_1.default.createElement(exports.ContextTracking.Provider, { value: context }, children));
