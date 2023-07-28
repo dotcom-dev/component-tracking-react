@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { ContextTracking } from './ContextWrapper';
 
 export const useContextPath = () => {
@@ -14,3 +14,4 @@ export const useContextPath = () => {
 
   return path;
 };
+
