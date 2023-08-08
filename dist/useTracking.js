@@ -10,14 +10,19 @@ function useTracking() {
     }
     var track = context.track, oldParams = context.params, buildPath = context.buildPath, keyValue = context.keyValue;
     return (0, react_1.useMemo)(function () {
-        return [function (params) {
-                if (typeof params === "function") {
-                    return track(params(oldParams));
+        return [
+            function (params) {
+                if (track) {
+                    if (typeof params === 'function') {
+                        if (oldParams)
+                            return track(params(oldParams));
+                    }
+                    else {
+                        return track(params);
+                    }
                 }
-                else {
-                    return track(params);
-                }
-            }, {
+            },
+            {
                 params: oldParams,
                 buildPath: buildPath,
                 keyValue: keyValue
