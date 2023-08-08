@@ -87,13 +87,15 @@ exports.ContextTracking = (0, react_1.createContext)(undefined);
 var ContextWrapper = function (_a) {
     var _b;
     var keyValue = _a.keyValue, track = _a.track, _c = _a.params, params = _c === void 0 ? {} : _c, children = _a.children;
-    var _d = (_b = (0, react_1.useContext)(exports.ContextTracking)) !== null && _b !== void 0 ? _b : {}, _e = _d.params, parentParams = _e === void 0 ? {} : _e, _f = _d.track, parentTrack = _f === void 0 ? function () { throw new Error("TRACKING NOT IMPLEMENTED"); } : _f, parentContext = __rest(_d, ["params", "track"]);
+    var _d = (_b = (0, react_1.useContext)(exports.ContextTracking)) !== null && _b !== void 0 ? _b : {}, _e = _d.params, parentParams = _e === void 0 ? {} : _e, _f = _d.track, parentTrack = _f === void 0 ? function () {
+        throw new Error('TRACKING NOT IMPLEMENTED');
+    } : _f, parentContext = __rest(_d, ["params", "track"]);
     var context = __assign(__assign({}, parentContext), { params: __assign(__assign({}, parentParams), params), track: function (params) { return __awaiter(void 0, void 0, void 0, function () {
             var value;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!(typeof track === "function")) return [3 /*break*/, 2];
+                        if (!(typeof track === 'function')) return [3 /*break*/, 2];
                         return [4 /*yield*/, track(params)];
                     case 1:
                         value = _a.sent();
@@ -105,10 +107,12 @@ var ContextWrapper = function (_a) {
                 }
             });
         }); }, keyValue: keyValue, buildPath: function () {
-            if ("buildPath" in parentContext) {
-                return keyValue ? "".concat(parentContext.buildPath(), "/").concat(keyValue) : parentContext.buildPath();
+            if ('buildPath' in parentContext) {
+                return keyValue
+                    ? "".concat(parentContext.buildPath(), "/").concat(keyValue)
+                    : parentContext.buildPath();
             }
-            return keyValue !== null && keyValue !== void 0 ? keyValue : "";
+            return keyValue !== null && keyValue !== void 0 ? keyValue : '';
         } });
     return (react_1.default.createElement(exports.ContextTracking.Provider, { value: context }, children));
 };

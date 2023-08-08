@@ -7,9 +7,9 @@ type ContextWrapperPropsType = {
 };
 type ContextType = {
     keyValue?: string;
-    params: Record<string, unknown>;
+    params?: Record<string, unknown>;
     buildPath: () => string;
-    track<T = Record<string, unknown>>(values?: Record<string, unknown>): T | Promise<T>;
+    track?<T = Record<string, unknown>>(values?: Record<string, unknown>): T | Promise<T>;
 };
 export declare const ContextTracking: React.Context<ContextType | undefined>;
 export declare const ContextWrapper: ({ keyValue, track, params, children }: ContextWrapperPropsType) => React.JSX.Element;
