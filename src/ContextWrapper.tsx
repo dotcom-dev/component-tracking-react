@@ -3,8 +3,8 @@ import React, { createContext, useContext, ReactNode } from 'react';
 type ContextWrapperPropsType = {
   keyValue?: string;
   children?: ReactNode;
-  params: Record<string, unknown>;
-  track<T = Record<string, unknown>>(
+  params?: Record<string, unknown>;
+  track?<T = Record<string, unknown>>(
     values?: Record<string, unknown>
   ): T | Promise<T>;
 };

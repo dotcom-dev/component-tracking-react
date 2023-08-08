@@ -2,8 +2,8 @@ import React, { ReactNode } from 'react';
 type ContextWrapperPropsType = {
     keyValue?: string;
     children?: ReactNode;
-    params: Record<string, unknown>;
-    track<T = Record<string, unknown>>(values?: Record<string, unknown>): T | Promise<T>;
+    params?: Record<string, unknown>;
+    track?<T = Record<string, unknown>>(values?: Record<string, unknown>): T | Promise<T>;
 };
 type ContextType = {
     keyValue?: string;
