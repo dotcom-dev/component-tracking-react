@@ -48,6 +48,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@dotcom-dev/component-tracking-react@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@dotcom-dev/component-tracking-react@workspace:."
+  dependencies:
+    "@rollup/plugin-commonjs": "npm:^25.0.2"
+    "@rollup/plugin-node-resolve": "npm:^15.1.0"
+    "@rollup/plugin-typescript": "npm:^11.1.2"
+    "@testing-library/jest-dom": "npm:^5.16.5"
+    "@testing-library/react": "npm:^13.4.0"
+    "@testing-library/user-event": "npm:^13.5.0"
+    "@types/jest": "npm:^27.5.2"
+    "@types/node": "npm:^16.18.38"
+    "@types/react": "npm:^18.2.14"
+    "@types/react-dom": "npm:^18.2.6"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    typescript: "npm:^4.9.5"
+    web-vitals: "npm:^2.1.4"
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@jest/expect-utils@npm:^29.6.1":
   version: 29.6.1
   resolution: "@jest/expect-utils@npm:29.6.1"
@@ -556,30 +580,6 @@ __metadata:
   checksum: 10c0/33a124960e471c25ee19280c9ce31ccc19574b566dc514fe4f4ca4c34fa8b0b57cf437671f5de380e11353ea9426213fca17687dd2ef03134fea2dbc53809fd6
   languageName: node
   linkType: hard
-
-"component-tracking-react@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "component-tracking-react@workspace:."
-  dependencies:
-    "@rollup/plugin-commonjs": "npm:^25.0.2"
-    "@rollup/plugin-node-resolve": "npm:^15.1.0"
-    "@rollup/plugin-typescript": "npm:^11.1.2"
-    "@testing-library/jest-dom": "npm:^5.16.5"
-    "@testing-library/react": "npm:^13.4.0"
-    "@testing-library/user-event": "npm:^13.5.0"
-    "@types/jest": "npm:^27.5.2"
-    "@types/node": "npm:^16.18.38"
-    "@types/react": "npm:^18.2.14"
-    "@types/react-dom": "npm:^18.2.6"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    typescript: "npm:^4.9.5"
-    web-vitals: "npm:^2.1.4"
-  peerDependencies:
-    react: ^18.0.0
-    react-dom: ^18.0.0
-  languageName: unknown
-  linkType: soft
 
 "css.escape@npm:^1.5.1":
   version: 1.5.1
